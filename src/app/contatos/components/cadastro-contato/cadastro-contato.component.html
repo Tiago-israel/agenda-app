@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <form #form1="ngForm">
+                                        <div class="form-group">
+                                            <label>Nome:</label>
+                                            <input type="text" #nome="ngModel" class="form-control" name="nome" [(ngModel)]="contato.nome" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email:</label>
+                                            <input type="email" class="form-control" name="email" [(ngModel)]="contato.email" />
+                                        </div>
+                                        <div>
+                                            <button type="submit" [disabled]="!form1.valid" (click)="salvarContato()"  class="btn btn-outline-success">Salvar</button>
+                                            <button class="btn btn-outline-info float-right" (click)="novoTelefone()" data-toggle="modal" data-target="#exampleModalLong">Adicionar telefone</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-6">
+                                    <div class="table-responsive">
+                                        <table *ngIf="contato.telefones.length > 0" class="table custom-table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Telefones</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let telefone of contato.telefones;let i = index;">
+                                                    <td>{{telefone.numero}}</td>
+                                                    <td>
+                                                        <a class="pointer" (click)="excluirTelefone(i,telefone)">
+                                                            <i style="color: red;" class="fa fa-trash center"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="exampleModalLong" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Telefone</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form #form2="ngForm" id="myForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Número:</label>
+                        <input type="text" [textMask]="{mask:mask}" #nome="ngModel" required [(ngModel)]="telefone.numero" (keyup)="trocarMascara()"
+                            [disabled]="isDetalhe" name="nome" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" #check (click)="trocarMascara(check)" value="celular?" />
+                        <label>celular</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button *ngIf="!isDetalhe" [disabled]="!form2.valid" data-dismiss="modal" (click)="adicionarNumero()" class="btn btn-primary float-left">Salvar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<loading-indicator></loading-indicator>

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        <i class="fa fa-user"></i>
+                        Nome: {{contato.nome}}
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope"></i>
+                        Email: {{contato.email}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <ul class="list-group">
+                <li *ngFor="let telefone of contato.telefones" class="list-group-item">
+                    <i class="fa fa-phone"></i>
+                    {{telefone.numero}}
+                    <a class="pointer" (click)="excluirTelefone(telefone.id)"><i style="color: red;" class="fa fa-trash float-right"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<loading-indicator></loading-indicator>

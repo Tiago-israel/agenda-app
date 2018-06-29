@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <a class="btn btn-outline-secondary" style="margin-bottom: 10px;" [routerLink]="['/contatos/novo-contato']">Adicionar contato</a>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contato of contatos">
+                        <td>{{contato.nome}}</td>
+                        <td>{{contato.email}}</td>
+                        <td>
+                            <button [routerLink]="['/contatos',contato.id]" class="btn btn-outline-success">Telefones</button>
+                            <button [routerLink]="['/contatos/editar-contato',contato.id]" class="btn btn-edit btn-outline-warning">Editar contato</button>
+                            <button class="btn btn-outline-danger" (click)="excluirContato(contato.id)">Excluir contato</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<loading-indicator></loading-indicator>

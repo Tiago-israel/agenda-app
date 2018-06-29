@@ -1,0 +1,45 @@
+/****************************************************************
+*****************************************************************
+
+	Carregando
+
+*****************************************************************
+****************************************************************/
+.carregando {
+	background-color: rgba(0, 0, 0, 0.8);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	padding-top: 15%;
+}
+
+.carregando .loading {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.carregando .loading img {
+	width: 5em;
+	height: 5em;
+}
+
+.carregando .loading::after {
+	content: "Aguarde...";
+	text-align: center;
+	margin-top: 1em;
+	display: block;
+	color: white;
+}
+
+.carregando-dialog.ui-shadow {
+	-moz-box-shadow: inherit !important;
+	-webkit-box-shadow: inherit !important;
+	box-shadow: inherit !important;
+}
+
+.carregando-dialog.ui-dialog {
+	overflow: visible !important;
+}
