@@ -10,7 +10,7 @@ import { LoadingIndicatorService } from '../../../utils/loading-indicator/loadin
 })
 export class ListarContatosComponent implements OnInit {
 
-    public contatos: Array<Contato> = new Array<Contato>();
+    public contatos: Array<Contato>;
 
     constructor(
         private contatoService: ContatoService,
@@ -24,10 +24,8 @@ export class ListarContatosComponent implements OnInit {
     }
 
     public buscarTodos(): void {
-        this.loading.show();
         this.contatoService.getAll().subscribe(data => {
             this.contatos = data;
-            this.loading.hide();
         });
     }
 

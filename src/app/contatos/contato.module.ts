@@ -32,4 +32,3 @@ import { TextMaskModule } from 'angular2-text-mask';
     ]
   })
   export class ContatoModule { }
-  

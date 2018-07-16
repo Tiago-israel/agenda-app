@@ -55,7 +55,6 @@ export class CadastroContatoComponent implements OnInit {
             this.telefoneService.delete(telefone.id).subscribe(
                 () => {
                     this.contato.telefones.splice(indice, 1);
-                    this.loading.hide();
                 }
             )
         } else {
@@ -65,7 +64,6 @@ export class CadastroContatoComponent implements OnInit {
     }
 
     public salvarContato(): void {
-        this.loading.show();
         if (!this.contato.id) {
             this.novoContato();
         } else {
@@ -74,11 +72,9 @@ export class CadastroContatoComponent implements OnInit {
     }
 
     public buscarContatoPorId(id: string): void {
-        this.loading.show();
         this.contatoService.get(id).subscribe(data => {
             if (data)
                 this.contato = data;
-            this.loading.hide();
         });
     }
 
@@ -96,17 +92,18 @@ export class CadastroContatoComponent implements OnInit {
         this.contatoService.put(this.contato.id, this.contato).subscribe(
             (data) => {
                 this.contato = data;
-                this.loading.hide();
                 this.router.navigate([`contatos/editar-contato/${this.contato.id}`]);
             }
         );
     }
 
     public trocarMascara(check): void {
-        if (check.checked == true) {
-            this.mask = this.maskCel;
-        } else {
-            this.mask = this.maskTel;
+        if (check) {
+            if (check.checked == true) {
+                this.mask = this.maskCel;
+            } else {
+                this.mask = this.maskTel;
+            }
         }
     }
 
