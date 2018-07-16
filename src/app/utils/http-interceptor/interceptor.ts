@@ -13,13 +13,12 @@ import { MessageService } from 'primeng/components/common/messageservice';
 export class Interceptor implements HttpInterceptor {
 
     public constructor(
-        private injector: Injector,
+        private loadingService: LoadingIndicatorService,
         private messageService: MessageService
     ) { }
 
     public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let loadingService = this.injector.get(LoadingIndicatorService);
-        loadingService.show();
+        this.loadingService.show();
         return next
             .handle(req)
             .do((ev: HttpEvent<any>) => {
@@ -27,13 +26,13 @@ export class Interceptor implements HttpInterceptor {
 
                 }
             }).catch((response: any) => {
-                loadingService.hide();
+                this.loadingService.hide();
                 if (response instanceof HttpErrorResponse) {
                     this.tratarErrosHttp(response);
                 }
                 return Observable.throw(response);
             }).finally(() => {
-                loadingService.hide();
+                this.loadingService.hide();
             });
     }
 
@@ -50,6 +49,7 @@ export class Interceptor implements HttpInterceptor {
                 this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: 'Erro no servidor, tente novamente!' })
                 break;
             default:
+                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: 'Erro no servidor, tente novamente!' })
                 break;
         }
     }
