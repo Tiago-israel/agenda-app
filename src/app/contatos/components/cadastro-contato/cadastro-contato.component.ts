@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/components/common/messageservice';
 import { LoadingIndicatorService } from './../../../utils/loading-indicator/loading-indicator.service';
 import { Telefone } from '../../../models/telefone.model';
 import { ContatoService } from './../../services/contato.service';
@@ -25,7 +26,8 @@ export class CadastroContatoComponent implements OnInit {
         private telefoneService: TelefoneService,
         private route: ActivatedRoute,
         private router: Router,
-        private loading: LoadingIndicatorService
+        private loading: LoadingIndicatorService,
+        private messageService: MessageService
     ) { }
 
 
@@ -83,6 +85,7 @@ export class CadastroContatoComponent implements OnInit {
             (data) => {
                 this.contato = data;
                 this.loading.hide();
+                this.messageService.add({ severity: 'success', summary: 'Sucesso !', detail: 'Contato adicionado com sucesso!' });
                 this.router.navigate([`contatos/editar-contato/${this.contato.id}`]);
             }
         );
@@ -92,7 +95,7 @@ export class CadastroContatoComponent implements OnInit {
         this.contatoService.put(this.contato.id, this.contato).subscribe(
             (data) => {
                 this.contato = data;
-                this.router.navigate([`contatos/editar-contato/${this.contato.id}`]);
+                this.messageService.add({ severity: 'success', summary: 'Sucesso !', detail: 'Contato atualizado com sucesso!' });
             }
         );
     }

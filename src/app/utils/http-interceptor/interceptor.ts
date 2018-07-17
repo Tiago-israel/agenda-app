@@ -40,13 +40,13 @@ export class Interceptor implements HttpInterceptor {
     private tratarErrosHttp(erro: HttpErrorResponse): void {
         switch (erro.status) {
             case 400:
-                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: 'Erro ao processar a requisição!' });
+                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: erro.message ? erro.error : 'Erro ao processar a requisição!' });
                 break;
             case 404:
-                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: 'Recurso não encontrado!' });
+                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail:erro.message ? erro.error : 'Recurso não encontrado!' });
                 break;
             case 500:
-                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: 'Erro no servidor, tente novamente!' })
+                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail:erro.message ? erro.error : 'Erro no servidor, tente novamente!' })
                 break;
             default:
                 this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: 'Erro no servidor, tente novamente!' })
