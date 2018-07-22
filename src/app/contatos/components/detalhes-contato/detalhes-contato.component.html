@@ -19,7 +19,7 @@
                 <li *ngFor="let telefone of contato.telefones" class="list-group-item">
                     <i class="fa fa-phone"></i>
                     {{telefone.numero}}
-                    <a class="pointer" (click)="excluirTelefone(telefone.id)"><i style="color: red;" class="fa fa-trash float-right"></i></a>
+                    <a class="pointer" hasClaim="removeTelefone" (click)="excluirTelefone(telefone.id)"><i style="color: red;" class="fa fa-trash float-right"></i></a>
                 </li>
             </ul>
         </div>

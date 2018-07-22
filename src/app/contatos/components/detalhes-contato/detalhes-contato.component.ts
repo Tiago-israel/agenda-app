@@ -1,4 +1,4 @@
-import { ContatoService } from './../../services/contato.service';
+import { ContatoService } from '../../services/contato.service';
 import { Component, OnInit } from "@angular/core";
 import { Contato } from '../../../models/contato.model';
 import { ActivatedRoute, Router } from '@angular/router';

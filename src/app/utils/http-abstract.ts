@@ -1,8 +1,7 @@
-import { environment } from './../../environments/environment.prod';
-import { Observable } from "rxjs/Observable";
-import { Http } from "@angular/http";
+import { environment } from '../../environments/environment.prod';
 import 'rxjs/add/operator/map'
-import { HttpClient } from '../../../node_modules/@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export abstract class HttpAbstract<T>{
 

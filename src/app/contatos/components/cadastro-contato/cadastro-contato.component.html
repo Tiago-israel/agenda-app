@@ -34,8 +34,8 @@
                                             <tbody>
                                                 <tr *ngFor="let telefone of contato.telefones;let i = index;">
                                                     <td>{{telefone.numero}}</td>
-                                                    <td>
-                                                        <a class="pointer" (click)="excluirTelefone(i,telefone)">
+                                                    <td >
+                                                        <a class="pointer"  (click)="excluirTelefone(i,telefone)">
                                                             <i style="color: red;" class="fa fa-trash center"></i>
                                                         </a>
                                                     </td>

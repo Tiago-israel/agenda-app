@@ -1,4 +1,4 @@
-import { LoadingIndicatorModule } from './../utils/loading-indicator/loading-indicator.module';
+import { LoadingIndicatorModule } from '../utils/loading-indicator/loading-indicator.module';
 import { CadastroContatoComponent } from './components/cadastro-contato/cadastro-contato.component';
 import { TelefoneService } from './services/telefone.service';
 import { DetalhesContatoComponent } from './components/detalhes-contato/detalhes-contato.component';
@@ -9,12 +9,14 @@ import { ContatoService } from './services/contato.service';
 import { ContatoRoutingModule } from './contato.routing';
 import {FormsModule} from "@angular/forms"
 import { TextMaskModule } from 'angular2-text-mask';
+import { HasClaimDirective } from '../directives/has-claim.directive';
 
 @NgModule({
     declarations: [
       ListarContatosComponent,
       DetalhesContatoComponent,
       CadastroContatoComponent,
+      HasClaimDirective
     ],
     imports: [
       CommonModule,

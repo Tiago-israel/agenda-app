@@ -1,4 +1,4 @@
-import { ContatoService } from './../../services/contato.service';
+import { ContatoService } from '../../services/contato.service';
 import { Component, OnInit } from "@angular/core";
 import { Contato } from '../../../models/contato.model';
 import { LoadingIndicatorService } from '../../../utils/loading-indicator/loading-indicator.service';
@@ -20,6 +20,7 @@ export class ListarContatosComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        debugger
         this.buscarTodos();
     }
 

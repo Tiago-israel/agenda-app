@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "login": "tiago",
+        "senha": "123",
+        "perfil":"admin",
+        "claims": [
+            {
+                "tipoClaim": "addContato",
+                "valorClaim": true
+            },
+            {
+                "tipoClaim": "editContato",
+                "valorClaim": true
+            },
+            {
+                "tipoClaim": "removeContato",
+                "valorClaim": true
+            },
+            {
+                "tipoClaim": "removeTelefone",
+                "valorClaim": true
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "login": "juliana",
+        "senha": "321",
+        "perfil":"user",
+        "claims": [
+            {
+                "tipoClaim": "addContato",
+                "valorClaim": false
+            },
+            {
+                "tipoClaim": "editContato",
+                "valorClaim": false
+            },
+            {
+                "tipoClaim": "removeContato",
+                "valorClaim": false
+            },
+            {
+                "tipoClaim": "removeTelefone",
+                "valorClaim": false
+            }
+            
+        ]
+    }
+]

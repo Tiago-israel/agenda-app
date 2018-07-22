@@ -1,4 +1,4 @@
-import { LoadingIndicatorService } from './../loading-indicator.service';
+import { LoadingIndicatorService } from '../loading-indicator.service';
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
 

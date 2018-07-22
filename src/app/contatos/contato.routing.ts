@@ -4,13 +4,13 @@ import { ListarContatosComponent } from './components/listar-contatos/listar-con
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
+import { AuthGuard } from '../guards/auth.guard';
 
 const contatosRoutes: Routes = [
-    { path: '', component: ListarContatosComponent, children:[] },
-    { path: 'contatos', component: ListarContatosComponent },
-    { path: 'contatos/novo-contato', component: CadastroContatoComponent },
-    { path: 'contatos/:id', component: DetalhesContatoComponent },
-    { path: 'contatos/editar-contato/:id', component: CadastroContatoComponent },
+    { path: '', component: ListarContatosComponent, canActivate: [AuthGuard] },
+    { path: 'contatos/novo-contato', component: CadastroContatoComponent, data: { "perfil": "admin" }, canActivate: [AuthGuard] },
+    { path: 'contatos/:id', component: DetalhesContatoComponent, canActivate: [AuthGuard] },
+    { path: 'contatos/editar-contato/:id', component: CadastroContatoComponent, data: { "perfil": "admin" }, canActivate: [AuthGuard] },
 ]
 
 @NgModule({

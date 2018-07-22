@@ -1,8 +1,8 @@
 import { MessageService } from 'primeng/components/common/messageservice';
-import { LoadingIndicatorService } from './../../../utils/loading-indicator/loading-indicator.service';
+import { LoadingIndicatorService } from '../../../utils/loading-indicator/loading-indicator.service';
 import { Telefone } from '../../../models/telefone.model';
-import { ContatoService } from './../../services/contato.service';
-import { TelefoneService } from './../../services/telefone.service';
+import { ContatoService } from '../../services/contato.service';
+import { TelefoneService } from '../../services/telefone.service';
 import { Component, OnInit } from "@angular/core";
 import { Contato } from "../../../models/contato.model";
 import { Router, ActivatedRoute } from '@angular/router';

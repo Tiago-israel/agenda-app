@@ -1,7 +1,7 @@
-import { Injectable } from "../../../../node_modules/@angular/core";
+import { Injectable } from "@angular/core";
 import { HttpAbstract } from "../http-abstract";
 import { ErrorLog } from "../../models/error.model";
-import { HttpClient } from "../../../../node_modules/@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class ErrorLogService extends HttpAbstract<ErrorLog>{

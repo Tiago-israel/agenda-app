@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <a class="btn btn-outline-secondary" style="margin-bottom: 10px;" [routerLink]="['/contatos/novo-contato']">Adicionar contato</a>
+        <a class="btn btn-outline-secondary"  hasClaim='addContato'  style="margin-bottom: 10px;" [routerLink]="['/contatos/novo-contato']">Adicionar contato</a>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
@@ -16,8 +16,8 @@
                         <td>{{contato.email}}</td>
                         <td>
                             <button [routerLink]="['/contatos',contato.id]" class="btn btn-outline-success">Telefones</button>
-                            <button [routerLink]="['/contatos/editar-contato',contato.id]" class="btn btn-edit btn-outline-warning">Editar contato</button>
-                            <button class="btn btn-outline-danger" (click)="excluirContato(contato.id)">Excluir contato</button>
+                            <button hasClaim='editContato' [routerLink]="['/contatos/editar-contato',contato.id]" class="btn btn-edit btn-outline-warning">Editar contato</button>
+                            <button hasClaim='removeContato' class="btn btn-outline-danger" (click)="excluirContato(contato.id)">Excluir contato</button>
                         </td>
                     </tr>
                 </tbody>

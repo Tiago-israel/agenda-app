@@ -49,7 +49,7 @@ export class Interceptor implements HttpInterceptor {
                 this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail:erro.message ? erro.error : 'Erro no servidor, tente novamente!' })
                 break;
             default:
-                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: 'Erro no servidor, tente novamente!' })
+                this.messageService.add({ severity: 'error', summary: 'Falha na operação', detail: 'Erro no servidor, tente novamente!' });
                 break;
         }
     }
